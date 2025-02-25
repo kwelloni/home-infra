@@ -50,9 +50,7 @@ in
       "dropcacheonclose=true"
       "minfreespace=20G"
       "fsname=mergerfs"
-    ];
-    depends = [
-      "/mnt/data0"
+      "x-systemd.requires=mnt-data0.mount"
     ];
   };
 
