@@ -11,6 +11,8 @@ in
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       "${impermanence}/nixos.nix"
+      ./network-share.nix
+      ./immich.nix
     ];
 
   # Use the GRUB 2 boot loader.
@@ -57,10 +59,17 @@ in
   };
 
 
-  networking.hostName = "welloni-nas"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  
+  networking = {
+    hostName = "welloni-nas"; # Define your hostname.
+    firewall.allowedTCPPorts = [
+      80
+      443
+    ];
+  };
 
   # Set your time zone.
   time.timeZone = "America/Chicago";
@@ -186,7 +195,10 @@ in
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users."kevin"= {
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ 
+      "wheel" # Enable ‘sudo’ for the user.
+      "immich"
+    ]; 
     packages = with pkgs; [
       tree
     ];
