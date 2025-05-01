@@ -89,6 +89,8 @@ in
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
+  virtualisation.docker.enable = true;
+
   # Impermanance function
   boot.initrd = {
     enable = true;
@@ -198,6 +200,7 @@ in
     extraGroups = [ 
       "wheel" # Enable ‘sudo’ for the user.
       "immich"
+      "docker"
     ]; 
     packages = with pkgs; [
       tree
@@ -222,6 +225,7 @@ in
     })
     parted
     mergerfs
+    btop
   ];
 
   programs.git = {

@@ -13,7 +13,7 @@
     settings = {
       global = {
         "guest account" = "kevin";
-        "map to guest" = "Bad User";
+        "map to guest" = "bad user";
         "load printers" = "no";
         "printcap name" = "/dev/null";
         "hosts allow" = "127.0.0.1 192.168.0.0/24";
@@ -21,6 +21,7 @@
       };
       "share" = {
         "path" = "/mnt/storage/share";
+        "browseable" = "yes";
         "guest ok" = "yes";
         "read only" = "no";
         "create mask" = "0644";
