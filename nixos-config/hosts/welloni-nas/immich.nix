@@ -4,19 +4,19 @@
   lib,
   ...
 }: {
-  users.extraUsers."immich" = {
-    group = "immich";
-    extraGroups = [ "users" ];
-    isSystemUser = true;
-    shell = pkgs.bashInteractive;
-    createHome = false;
-  };
-  services.immich = {
-    enable = true;
-    port = 2283;
-    user = "immich";
-    mediaLocation = "/mnt/storage/immich";
-  };
+#  users.extraUsers."immich" = {
+#    group = "immich";
+#    extraGroups = [ "users" ];
+#    isSystemUser = true;
+#    shell = pkgs.bashInteractive;
+#    createHome = false;
+#  };
+#  services.immich = {
+#    enable = true;
+#    port = 2283;
+#    user = "immich";
+#    mediaLocation = "/mnt/storage/immich";
+#  };
 
   services.nginx.enable = true;
   services.nginx.virtualHosts."immich.${config.networking.hostName}.home" = {

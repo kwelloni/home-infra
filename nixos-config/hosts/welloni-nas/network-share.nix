@@ -12,7 +12,7 @@
     openFirewall = true;
     settings = {
       global = {
-        "guest account" = "kevin";
+        "guest account" = "nobody";
         "map to guest" = "bad user";
         "load printers" = "no";
         "printcap name" = "/dev/null";
@@ -24,8 +24,8 @@
         "browseable" = "yes";
         "guest ok" = "yes";
         "read only" = "no";
-        "create mask" = "0644";
-        "directory mask" = "0755";
+        "create mask" = "0775";
+        "directory mask" = "0775";
         "force group" = "users";
       };
     };
